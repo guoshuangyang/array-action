@@ -1,0 +1,30 @@
+{
+  "name": "array-action",
+  "version": "1.0.2",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "browser": "dist/index.global.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "npmPublish": "npm run build && npm publish",
+    "publish": "echo 发布成功，版本号为 $(node -p \"require('./package.json').version\")"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
+    "rollup": "^4.9.6",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  }
+}
