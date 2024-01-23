@@ -13,6 +13,7 @@ npm install array-action
 ```
 
 ## 使用
+
 以下方数组为例（如无特殊描述，均采用改示例的数组）
 ```javascript
 [{label: "测试1",key: "test1"},{label: '测试字段2',key: 'test2'}]
@@ -25,13 +26,17 @@ const cloneOption = new ArrayAction([
 ]);
 ```
 ## 方法 (clone之后的) method
+
 **除get开头方法外均支持链式调用包括clone**
+
 ### setKeyValue： 实现对某个key值的value进行覆盖更新
+
 ```javascript
 let arr = cloneOption.clone().setKeyValue("test1", "test12");
 console.log(JSON.stringify(arr)) 
 // [{"label":"测试1","key":"test1","value":"test12"},{"label":"测试字段2","key":"test2"}]
 ```
+
 ### getKeyValue: 获取数据中某个key值的value值
 ```javascript
 let arr = cloneOption.clone()
@@ -59,6 +64,7 @@ console.log(arr.getArrValue()) // {test1: '我是test1的value', test2: '我是t
 ```
 
 ### setKeyItem: 根据key覆盖更新该key对应的数据
+
 ```javascript
 let arr = cloneOption.clone()
 arr.setKeyItem("test1", {
@@ -71,6 +77,7 @@ console.log(JSON.stringify(arr))
 ```
 
 ### addKeyItem: 根据key值添加该key对应的数据
+
 ```javascript
 let arr = cloneOption.clone()
 arr.addKeyItem({
@@ -82,6 +89,7 @@ arr.addKeyItem({
 ```
 
 ### getAll: 获取操作之后所有数组对象
+
 ```javascript
 let arr = cloneOption.clone()
 arr.setKeyItem("test1", {
@@ -108,6 +116,7 @@ console.log(arr.getAll())
 // ]
 ```
 ## changeData： 修改clone的原数据的某个item（根据key）
+
 注意：会影响到后续使用clone方法的内容，建议使用在初始化或者重新进行数据的拷贝时候使用。
 场景一：我需要对某个内容进行赋值，比如我这个需要一个optipns的数组数据，以还原选择框时候可以使用changeData,这样只要是使用该数据源的，均可以拿到该item的options,如果是请求获取到的，可以节省数据源的请求次数。
 ```javascript
